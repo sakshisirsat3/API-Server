@@ -1,21 +1,26 @@
-**This project is an API server built with Node.js and Express that includes user authentication and rate-limiting capabilities.**
+**API Server with Authentication and Rate Limiting
+This is a containerized API server built with Node.js and Express that includes user authentication and rate-limiting capabilities. It supports user login via JWT authentication and limits request frequency per IP to ensure fair usage and prevent abuse. The app uses Redis for rate-limiting and PostgreSQL for storing user credentials.**
 
-**Features**
-User Authentication: Secure login system that issues JWT tokens for user authentication.
+**What does the app do?**
+The API server exposes the following functionalities:
 
-Rate Limiting: Limits the number of requests from a single user within a defined time window, ensuring fair usage and protecting against abuse.
+User Login: Authenticate users with a username and password and issue a JWT token.
 
-Error Handling: A global error handler that manages any issues smoothly, offering clear error responses.
+Protected Resource Access: Access protected routes only with a valid JWT token.
 
-Environment Configuration: Sensitive data such as JWT secret and database credentials are stored in a .env file for security and easy configuration.
+Rate Limiting: Enforces a rate limit on the number of requests a user can make within a 60-second window based on their IP address.
 
-**Tech Stack**
-Node.js: The JavaScript runtime environment to build the API server.
+**Technologies Used**
+Node.js: JavaScript runtime for building the backend server.
 
-Express.js: The web framework for building and handling HTTP requests.
+Express.js: Web framework for creating and managing the API.
 
-JWT (JSON Web Tokens): For securely authenticating users and generating tokens for access.
+JWT (JSON Web Tokens): Secure authentication method for users via token generation.
 
-Redis: Provides fast and efficient rate limiting, tracking user requests.
+Redis: Used for implementing the rate-limiting functionality.
 
-PostgreSQL: The database for securely storing user credentials and managing user-related data.
+PostgreSQL: Relational database for storing user credentials.
+
+Docker & Docker Compose: For containerization and easy deployment.
+
+dotenv: Manages environment variables like database credentials and JWT secret.
